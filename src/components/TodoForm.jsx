@@ -1,24 +1,24 @@
 import { useState } from "react";
 
-function TodoForm({ onAddElement }) {
-  const [todoElement, setTodoElement] = useState();
+function TodoForm({ onAddNote }) {
+  const [todoNote, setTodoNote] = useState();
 
-  function addElement() {
-    if (!todoElement) {
+  function addNote() {
+    if (!todoNote) {
       return;
     }
-    onAddElement(todoElement);
-    setTodoElement("");
+    onAddNote(todoNote);
+    setTodoNote("");
   }
 
   return (
     <div>
       <input
         type="text"
-        value={todoElement}
-        onChange={(e) => setTodoElement(e.target.value)}
+        value={todoNote}
+        onChange={(e) => setTodoNote(e.target.value)}
       />
-      <button onClick={addElement}>Add</button>
+      <button onClick={addNote}>Add</button>
     </div>
   );
 }

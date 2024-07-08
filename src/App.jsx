@@ -1,32 +1,43 @@
 import { useState } from "react";
 import TodoForm from "./components/TodoForm";
 import List from "./components/List";
-import ListElement from "./components/ListElement";
+import ListItem from "./components/ListItem";
 
 function App() {
-  const [todoList, setTodoList] = useState(["el", "em", "ent"]);
+  const [todoList, setTodoList] = useState([
+    { isChecked: false, text: "eee" },
+    { isChecked: false, text: "aaaa" },
+    { isChecked: true, text: "bbbb" },
+  ]);
 
-  function addElementToDo(element) {
-    setTodoList([...todoList, element]);
+  function addNote(element) {
+    setTodoList([...todoList, { isChecked: false, text: element }]);
   }
 
-  function removeElementFromToDo(index) {
+  function removeNote(index) {
     let list = todoList;
     console.log(index);
     list.splice(index, 1);
     setTodoList([...list]);
   }
 
+  function toggleNoteCheck(index) {
+    let list = todoList;
+    list[index].isChecked = !list[index].isChecked;
+    setTodoList([...list]);
+  }
+
   return (
     <>
       <h1>TO-DO APP</h1>
-      <TodoForm onAddElement={addElementToDo} />
+      <TodoForm onAddNote={addNote} />
       <List>
         {todoList.map((el, i) => (
-          <ListElement
+          <ListItem
             key={i}
-            text={el}
-            onRemoveElement={() => removeElementFromToDo(i)}
+            note={el}
+            onRemoveNote={() => removeNote(i)}
+            onCheckboxToggle={() => toggleNoteCheck(i)}
           />
         ))}
       </List>

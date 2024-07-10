@@ -28,8 +28,8 @@ function App() {
   }
 
   return (
-    <>
-      <h1>TO-DO APP</h1>
+    <div className="flex h-screen flex-col items-center">
+      <h1 className="m-8 text-6xl font-bold">TO-DO APP</h1>
       <TodoForm onAddNote={addNote} />
       <List>
         {todoList.map((el, i) => (
@@ -41,7 +41,7 @@ function App() {
           />
         ))}
       </List>
-    </>
+    </div>
   );
 }
 

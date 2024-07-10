@@ -5,9 +5,9 @@ import ListItem from "./components/ListItem";
 
 function App() {
   const [todoList, setTodoList] = useState([
-    { isChecked: false, text: "eee" },
-    { isChecked: false, text: "aaaa" },
-    { isChecked: true, text: "bbbb" },
+    { isChecked: false, text: "Make coffee" },
+    { isChecked: false, text: "Learn Tailwind CSS" },
+    { isChecked: true, text: "Create todo app" },
   ]);
 
   function addNote(element) {
